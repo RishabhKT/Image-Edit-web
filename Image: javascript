@@ -1,0 +1,336 @@
+var rn = Math.floor((Math.random() * 150) + 60);
+var rs = Math.floor((Math.random() * 11) + 4);
+	var t = new Trianglify({
+ x_gradient: Trianglify.colorbrewer.Spectral[rs],
+    noiseIntensity: 0,
+    cellsize: rn
+});
+var pattern = t.generate(window.innerWidth, window.innerWidth+200);
+document.body.setAttribute('style', 'background-image: '+pattern.dataUrl);
+var val;
+var fgi=null;
+var bgi=null;
+var output;
+var greenThreshold=200;
+function dothis(){
+  var choice=confirm("What do you want to choose?");
+  if(choice){
+    alert("You chose OK!")
+  }
+  else{
+    var message="are you sure?"
+    alert(message);
+  }
+}
+function changeColor(){
+  var id1=document.getElementById("d1");
+  var id2=document.getElementById("d2");
+  var choice=confirm("dark mode?");
+  if(choice){
+  id1.className="yellowback";
+  id2.className="orangeback";
+  }
+  else{
+    id1.className="Whiteback";
+    id2.className="Whiteback";
+  }
+}
+
+
+function upload(){
+  var canvas=document.getElementById("can");
+ var img1=document.getElementById("img");
+  val=new SimpleImage(img1);
+  val.drawTo(canvas);
+  
+}
+function LiveGray(){
+ 
+  for(var pixel of val.values()){
+    var av=(pixel.getRed()+pixel.getGreen()+pixel.getBlue())/2.8;
+    if(pixel.getRed()<(pixel.getBlue()+pixel.getGreen())*0.95){pixel.setRed(av);
+    pixel.setGreen(av);
+    pixel.setBlue(av);}
+  }
+  var ncanvas=document.getElementById("can");
+  val.drawTo(ncanvas);
+     }
+
+function Grayscale(){
+  
+  for(var pixel of val.values()){
+    var av=(pixel.getRed()+pixel.getGreen()+pixel.getBlue())/3;
+    pixel.setRed(av);
+    pixel.setGreen(av);
+    pixel.setBlue(av);
+  }
+  var ncanvas=document.getElementById("can");
+  val.drawTo(ncanvas);
+     }
+
+function Warm(){
+  
+  for(var pixel of val.values()){
+    var av=(pixel.getRed()+pixel.getGreen()+pixel.getBlue())/3;
+    //pixel.setRed(av);
+    //pixel.setGreen(av/2);
+    pixel.setBlue(15);
+  }
+  var ncanvas=document.getElementById("can");
+  val.drawTo(ncanvas);
+     }
+function Ram(){
+   for(var pixel of val.values()){
+   var av=(pixel.getRed()+pixel.getGreen()+pixel.getBlue())/2.8;
+    if(pixel.getGreen()>(pixel.getRed()+pixel.getBlue())*0.5){}
+      //pixel.setRed(0);}
+   else if(pixel.getBlue()>(pixel.getRed()+pixel.getGreen())*0.1)
+     {pixel.setBlue(av);
+     pixel.setGreen(av)
+     pixel.setRed(av);}
+      
+     //pixel.setGreen(0)}
+      //pixel.setGreen(200);
+      else{}
+    
+     
+     
+  }
+  var ncanvas=document.getElementById("can");
+  val.drawTo(ncanvas);
+}
+  
+function green(){
+   for(var pixel of val.values()){
+   var av=(pixel.getRed()+pixel.getGreen()+pixel.getBlue())/2.8;
+    if(pixel.getGreen()>(pixel.getRed()+pixel.getBlue())){}
+      //pixel.setRed(0);}
+   else if(pixel.getBlue()>(pixel.getRed()))
+     {pixel.setBlue(av);
+     pixel.setGreen(av)
+     pixel.setRed(av);}
+      
+     //pixel.setGreen(0)}
+      //pixel.setGreen(200);
+      else{}
+    
+     
+     
+  }
+  var ncanvas=document.getElementById("can");
+  val.drawTo(ncanvas);
+}
+  
+function original(){
+  var canvas=document.getElementById("can");
+ var img1=document.getElementById("img");
+  val=new SimpleImage(img1);
+  val.drawTo(canvas);
+}
+
+function fgload(){
+  var canvas=document.getElementById("can1");
+ var img=document.getElementById("fgimg");
+  fgi=new SimpleImage(img);
+  fgi.drawTo(canvas);
+  
+}
+function bgload(){
+  var canvas=document.getElementById("can2");
+ var img=document.getElementById("bgimg");
+  bgi=new SimpleImage(img);
+  bgi.drawTo(canvas);
+  
+}
+//function clearCanvas(){
+//  var canvas1=document.getElementById("can1");var rn = Math.floor((Math.random() * 150) + 60);
+var rs = Math.floor((Math.random() * 11) + 4);
+	var t = new Trianglify({
+ x_gradient: Trianglify.colorbrewer.Spectral[rs],
+    noiseIntensity: 0,
+    cellsize: rn
+});
+var pattern = t.generate(window.innerWidth, window.innerWidth+200);
+document.body.setAttribute('style', 'background-image: '+pattern.dataUrl);
+var val;
+var fgi=null;
+var bgi=null;
+var output;
+var greenThreshold=200;
+function dothis(){
+  var choice=confirm("What do you want to choose?");
+  if(choice){
+    alert("You chose OK!")
+  }
+  else{
+    var message="are you sure?"
+    alert(message);
+  }
+}
+function changeColor(){
+  var id1=document.getElementById("d1");
+  var id2=document.getElementById("d2");
+  var choice=confirm("dark mode?");
+  if(choice){
+  id1.className="yellowback";
+  id2.className="orangeback";
+  }
+  else{
+    id1.className="Whiteback";
+    id2.className="Whiteback";
+  }
+}
+
+
+function upload(){
+  var canvas=document.getElementById("can");
+ var img1=document.getElementById("img");
+  val=new SimpleImage(img1);
+  val.drawTo(canvas);
+  
+}
+function LiveGray(){
+ 
+  for(var pixel of val.values()){
+    var av=(pixel.getRed()+pixel.getGreen()+pixel.getBlue())/2.8;
+    if(pixel.getRed()<(pixel.getBlue()+pixel.getGreen())*0.95){pixel.setRed(av);
+    pixel.setGreen(av);
+    pixel.setBlue(av);}
+  }
+  var ncanvas=document.getElementById("can");
+  val.drawTo(ncanvas);
+     }
+
+function Grayscale(){
+  
+  for(var pixel of val.values()){
+    var av=(pixel.getRed()+pixel.getGreen()+pixel.getBlue())/3;
+    pixel.setRed(av);
+    pixel.setGreen(av);
+    pixel.setBlue(av);
+  }
+  var ncanvas=document.getElementById("can");
+  val.drawTo(ncanvas);
+     }
+
+function Warm(){
+  
+  for(var pixel of val.values()){
+    var av=(pixel.getRed()+pixel.getGreen()+pixel.getBlue())/3;
+    //pixel.setRed(av);
+    //pixel.setGreen(av/2);
+    pixel.setBlue(15);
+  }
+  var ncanvas=document.getElementById("can");
+  val.drawTo(ncanvas);
+     }
+function Ram(){
+   for(var pixel of val.values()){
+   var av=(pixel.getRed()+pixel.getGreen()+pixel.getBlue())/2.8;
+    if(pixel.getGreen()>(pixel.getRed()+pixel.getBlue())*0.5){}
+      //pixel.setRed(0);}
+   else if(pixel.getBlue()>(pixel.getRed()+pixel.getGreen())*0.1)
+     {pixel.setBlue(av);
+     pixel.setGreen(av)
+     pixel.setRed(av);}
+      
+     //pixel.setGreen(0)}
+      //pixel.setGreen(200);
+      else{}
+    
+     
+     
+  }
+  var ncanvas=document.getElementById("can");
+  val.drawTo(ncanvas);
+}
+  
+function green(){
+   for(var pixel of val.values()){
+   var av=(pixel.getRed()+pixel.getGreen()+pixel.getBlue())/2.8;
+    if(pixel.getGreen()>(pixel.getRed()+pixel.getBlue())){}
+      //pixel.setRed(0);}
+   else if(pixel.getBlue()>(pixel.getRed()))
+     {pixel.setBlue(av);
+     pixel.setGreen(av)
+     pixel.setRed(av);}
+      
+     //pixel.setGreen(0)}
+      //pixel.setGreen(200);
+      else{}
+    
+     
+     
+  }
+  var ncanvas=document.getElementById("can");
+  val.drawTo(ncanvas);
+}
+  
+function original(){
+  var canvas=document.getElementById("can");
+ var img1=document.getElementById("img");
+  val=new SimpleImage(img1);
+  val.drawTo(canvas);
+}
+
+function fgload(){
+  var canvas=document.getElementById("can1");
+ var img=document.getElementById("fgimg");
+  fgi=new SimpleImage(img);
+  fgi.drawTo(canvas);
+  
+}
+function bgload(){
+  var canvas=document.getElementById("can2");
+ var img=document.getElementById("bgimg");
+  bgi=new SimpleImage(img);
+  bgi.drawTo(canvas);
+  
+}
+//function clearCanvas(){
+//  var canvas1=document.getElementById("can1");
+//  var canvas2=document.getElementById("can2");
+//  can2.style.backgroundColor=rgb(255,255,255);
+//}
+function Greenscreen(){
+  output=new SimpleImage(fgi.getWidth(),fgi.getHeight());
+  for( var pixel of fgi.values()){
+    var x=pixel.getX();
+    var y=pixel.getY();
+    if((pixel.getGreen()>greenThreshold)&&(x<bgi.getWidth())){
+      var bgpixel=bgi.getPixel(x,y);
+      output.setPixel(x,y,bgpixel);
+    }
+    else{
+      output.setPixel(x,y,pixel);
+    }
+    
+  }
+  //clearCanvas();
+  var mcanvas=document.getElementById("can1");
+  
+  output.drawTo(mcanvas);
+}
+
+//  var canvas2=document.getElementById("can2");
+//  can2.style.backgroundColor=rgb(255,255,255);
+//}
+function Greenscreen(){
+  output=new SimpleImage(fgi.getWidth(),fgi.getHeight());
+  for( var pixel of fgi.values()){
+    var x=pixel.getX();
+    var y=pixel.getY();
+    if((pixel.getGreen()>greenThreshold)&&(x<bgi.getWidth())){
+      var bgpixel=bgi.getPixel(x,y);
+      output.setPixel(x,y,bgpixel);
+    }
+    else{
+      output.setPixel(x,y,pixel);
+    }
+    
+  }
+  //clearCanvas();
+  var mcanvas=document.getElementById("can1");
+  
+  output.drawTo(mcanvas);
+}
