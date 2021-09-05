@@ -1,0 +1,42 @@
+<html id="d1">
+ 
+<div id="d1">
+  <h1 id="cell">K's Editor</h1>
+  <p>Hey there, this is a page for editing images, try out the various filters! </p>
+  <img id="kimg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTAPbFbSjfCHCGFPvBxv_zJHVOKjtruBG71Afw0w2ay1IfCcDK1&usqp=CAU" />
+    <p>Happy Editing! ;-)</p>
+  
+    
+</div>
+<div id="d2">
+  <h2></h2>
+  
+  <p>Click to Change Theme<br>(Refresh page to exit Dark mode)</p>
+  <input type="button" value="Dark Mode"
+             onclick= "changeColor()">
+  <script src='https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js'></script>
+  <h2>K's Image Editor:</h2>
+  <p><input type="file" multiple="true" accept=image/* id= "img" onchange=upload()>
+  <input type="button" value="Grayscale Filter" onclick="Grayscale()">
+    <input type="button" value="Redgray Filter" onclick="LiveGray()">
+    <input type="button" value="Dramatic Warm" onclick="Warm()">
+    <input type="button" value="BGYgray" onclick="Ram()">
+    <input type="button" value="Livegray" onclick="green()">
+    <input type="button" value="Revert to Original" onclick="original()">
+  </p>
+  <canvas id="can"> </canvas>
+  <p><b>Get images from web:</b></p>
+  <p><a href=https://goglogo.net/search.php>
+    Click here
+  </a> to search images from web</p>
+  <h4>Green Screen Editor:</h4>
+  <canvas id="can1"></canvas><canvas id="can2"></canvas>
+  <p>Foreground:<input type="file" multiple="false" accept=image/* id= "fgimg" onchange=fgload()></p>
+  <p>Background:<input type="file" multiple="true" accept=image/* id= "bgimg" onchange=bgload()></p>
+  <input type="button" value="Create Composite" onclick="Greenscreen()">
+  <input type="button" value="Clear Canvases" onclick="clearCanvas()">
+  
+</div> 
+  
+
+</html>
