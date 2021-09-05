@@ -1,0 +1,77 @@
+
+
+
+
+
+
+#kimg{
+  float:right;
+  border:1px solid Red;
+  
+}
+.playli {
+  color: rgb(0,170,70);
+}
+.placeli{
+  color: blue;
+}
+h1{
+  text-align:center;
+  color:darkblue
+}
+#id{
+  width:145pt;
+  padding:1pt;
+  border:2px solid red;
+  color:white;
+  
+  background-color:black;
+  font-size:14pt;
+  
+}
+#table{
+  background-color:red;
+  color:white;
+}
+#cell{
+  background-color:pink;
+  color: black;
+  
+}
+.yellowback{
+  background-color:black;
+  color:yellow;
+  margin:4pt;
+}
+.orangeback{
+  background-color: black;
+  color: orange;
+  
+}
+.Whiteback{
+  background-color:white;
+  
+  
+}
+canvas{
+  width:img1.width;
+  height:img1.height;
+  border:1px solid red;
+}
+h1 {
+    animation-duration: 4s;
+    animation-name: slidein;
+    animation-iteration-count: 1;
+}
+
+@keyframes slidein {
+  0% {
+    margin-right: 50%;
+  }
+  50% {
+    margin-left: 300px;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
